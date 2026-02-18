@@ -1,5 +1,5 @@
 # YouTube-Analytics-and-Insight-Dashboard-for-Channel-Performance-Evaluation-and-Engagement-Analysis
-📊 YouTube Analytics and Insight Dashboard  A comprehensive YouTube Analytics and Insight Dashboard designed to evaluate channel performance and analyze audience engagement. This project provides data-driven insights through interactive visualizations and performance metrics to help content creators optimize their growth strategies.
+📊 YouTube Analytics and Insight Dashboard : A comprehensive YouTube Analytics and Insight Dashboard designed to evaluate channel performance and analyze audience engagement. This project provides data-driven insights through interactive visualizations and performance metrics to help content creators optimize their growth strategies.
 
 🚀 Project Overview
 
