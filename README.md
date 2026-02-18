@@ -43,21 +43,19 @@ HTML5
 
 CSS3
 
-JavaScript / React (if applicable)
+JavaScript 
 
 Backend:
 
-Node.js / Python (Flask/Django)
+Python 
 
 Data Processing:
 
-Pandas (if Python)
-
-Express.js (if Node)
+Pandas (
 
 Visualization Tools:
 
-Chart.js / D3.js / Matplotlib / Power BI
+Matplotlib / Power BI
 
 API:
 
@@ -75,19 +73,4 @@ Dashboard visualizes metrics using charts
 
 Users interact with filters and analytics tools
 
-📂 Project Structure
-youtube-analytics-dashboard/
-│
-├── frontend/
-│   ├── components/
-│   ├── pages/
-│   └── styles/
-│
-├── backend/
-│   ├── api/
-│   ├── models/
-│   └── services/
-│
-├── data/
-├── README.md
-└── requirements.txt / package.json
+
