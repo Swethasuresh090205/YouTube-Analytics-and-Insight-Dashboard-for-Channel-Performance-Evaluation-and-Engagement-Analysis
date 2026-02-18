@@ -13,6 +13,7 @@
 🔍 Video-level performance comparison
 
 📌 Data filtering and sorting options
+
 🎯 Objective
 
 To provide content creators and analysts with meaningful insights into audience behavior and channel growth, enabling informed decision-making and improved engagement strategies.
