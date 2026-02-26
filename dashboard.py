@@ -15,8 +15,8 @@ if generate_clicked:
 st.button("Generate Insights", key="generate_btn")
 fetch_and_store(channel_id)
 
-    conn = sqlite3.connect("youtube_data.db")
-    df = pd.read_sql_query("SELECT * FROM videos", conn)
+conn = sqlite3.connect("youtube_data.db")
+df = pd.read_sql_query("SELECT * FROM videos", conn)
 
     if df.empty:
         st.error("No data found. Please fetch data first.")
@@ -64,4 +64,5 @@ fetch_and_store(channel_id)
 
 
     conn.close()
+
 
