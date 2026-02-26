@@ -13,7 +13,7 @@ if generate_clicked:
     from main import fetch_and_store
 
 st.button("Generate Insights", key="generate_btn")
-    fetch_and_store(channel_id)
+fetch_and_store(channel_id)
 
     conn = sqlite3.connect("youtube_data.db")
     df = pd.read_sql_query("SELECT * FROM videos", conn)
@@ -64,3 +64,4 @@ st.button("Generate Insights", key="generate_btn")
 
 
     conn.close()
+
