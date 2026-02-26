@@ -9,11 +9,10 @@ st.title("📊 YouTube Advanced Analytics Dashboard")
 
 # Input Section
 channel_id = st.text_input("Enter YouTube Channel ID")
-
-if st.button("Generate Insights"):
+if generate_clicked:
     from main import fetch_and_store
 
-if st.button("Generate Insights"):
+st.button("Generate Insights", key="generate_btn")
     fetch_and_store(channel_id)
 
     conn = sqlite3.connect("youtube_data.db")
@@ -62,5 +61,6 @@ if st.button("Generate Insights"):
         trend = df.groupby("published_date").size().reset_index(name="count")
         fig4 = px.line(trend, x="published_date", y="count")
         st.plotly_chart(fig4, use_container_width=True)
+
 
     conn.close()
