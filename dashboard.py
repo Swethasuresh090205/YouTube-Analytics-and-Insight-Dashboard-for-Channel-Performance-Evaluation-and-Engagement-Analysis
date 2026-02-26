@@ -4,19 +4,21 @@ import pandas as pd
 import plotly.express as px
 
 st.set_page_config(page_title="YouTube Analytics Dashboard", layout="wide")
-
 st.title("📊 YouTube Advanced Analytics Dashboard")
 
 # Input Section
 channel_id = st.text_input("Enter YouTube Channel ID")
+
+# Proper Button Setup
+generate_clicked = st.button("Generate Insights", key="generate_btn")
+
 if generate_clicked:
+
     from main import fetch_and_store
+    fetch_and_store(channel_id)
 
-st.button("Generate Insights", key="generate_btn")
-fetch_and_store(channel_id)
-
-conn = sqlite3.connect("youtube_data.db")
-df = pd.read_sql_query("SELECT * FROM videos", conn)
+    conn = sqlite3.connect("youtube_data.db")
+    df = pd.read_sql_query("SELECT * FROM videos", conn)
 
     if df.empty:
         st.error("No data found. Please fetch data first.")
@@ -25,7 +27,8 @@ df = pd.read_sql_query("SELECT * FROM videos", conn)
         total_views = df["views"].sum()
         total_likes = df["likes"].sum()
         total_comments = df["comments"].sum()
-        avg_engagement = ((df["likes"] + df["comments"]) / df["views"]).mean()
+        df["engagement_rate"] = (df["likes"] + df["comments"]) / df["views"]
+        avg_engagement = df["engagement_rate"].mean()
 
         col1, col2, col3, col4 = st.columns(4)
 
@@ -42,12 +45,11 @@ df = pd.read_sql_query("SELECT * FROM videos", conn)
 
         # Engagement Chart
         st.subheader("📈 Engagement Rate Analysis")
-        df["engagement_rate"] = (df["likes"] + df["comments"]) / df["views"]
         fig2 = px.scatter(df, x="views", y="engagement_rate",
                           size="likes", hover_name="title")
         st.plotly_chart(fig2, use_container_width=True)
 
-        # Pie Chart (Likes vs Comments)
+        # Pie Chart
         st.subheader("🥧 Likes vs Comments Distribution")
         pie_data = pd.DataFrame({
             "Metric": ["Likes", "Comments"],
@@ -61,7 +63,6 @@ df = pd.read_sql_query("SELECT * FROM videos", conn)
         trend = df.groupby("published_date").size().reset_index(name="count")
         fig4 = px.line(trend, x="published_date", y="count")
         st.plotly_chart(fig4, use_container_width=True)
-
 
     conn.close()
 
